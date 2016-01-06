@@ -2,14 +2,14 @@
 
 (translation in progress)
 
-* use PostgreSQL (fallback on SQLite)
+* Use PostgreSQL (fallback on SQLite)
 * pas d'abbréviations des mots sauf pour des expressions bien connues et longue (e.g. "i18n")
-* pas de mots-clés réservé (par exemple `user` sur PGSQL)
-* table and view names should be singular and in camelCase, e.g. `team` not `teams` ([why](https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/#singular-relations))
-* nom des champs/tables en **camelCase**, e.g. `createdAt`
-* utiliser uniquement underscore pour les foreign-keys des tables, e.g. `user_id`
-* utiliser des UUID en type de  PK & FK
-* chaque table avoir avoir les champs `createdAt`, [`deletedAt`](http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253) (et `updatedAt` si la BDD est mutable)
+* No reserved keywords (for example, `user` in PGSQL)
+* Table and view names should be singular, e.g. `team` not `teams` ([why](https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/#singular-relations))
+* Fields, views and tables should be in **camelCase**, e.g. `createdAt`
+* Use snake case for foreign keys, e.g. `team_id`
+* Use UUID for primary and foreign keys
+* Each table should have a `createdAt` and a  [`deletedAt`](http://stackoverflow.com/questions/8289100/create-unique-constraint-with-null-columns/8289253#8289253) field, a `updatedAt` should be added too if the table fields are mutable.
 * utiliser une lib de data-mapping (anorm/slick) mais pas d'ORM
 * utiliser BNCF (au dessus de la 3NF) (cf normal form)
 * always set column to NOT NULL by default, use NULL only when necessary
